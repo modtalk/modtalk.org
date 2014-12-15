@@ -1,0 +1,7 @@
+.units-row
+  .unit-centered.unit-50
+    %h1 Search
+    %input.search-box{ data: { results_pane: :results_pane }, value: params[:query] }
+.units-row#results_pane
+  = render partial: 'result_template_ruby', collection: @results, as: :item 
+= render partial: 'result_template'

@@ -1,0 +1,19 @@
+- content_for :image_attribute do
+  Lighthouse photo &copy; 2011 Gwendolyn L. Day
+!!!
+%html{prefix: "og: http://ogp.me/ns#"}
+  %head
+    %title Modtalk - Modular Smalltalk
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1.0, maximum-scale=1.0", name: "viewport"}/
+    %meta{content: "Modtalk.org", property: "apple-mobile-web-app-title"}/
+    %link{href: image_url('modtalk_logo-144px.png'), rel: "apple-touch-icon", size: "144x144"}/
+    = stylesheet_link_tag 'application', :media => 'screen'
+    = javascript_include_tag 'application.js'
+    - if content_for?(:head) then
+      = yield :head
+  %body
+    = render partial: 'layouts/navigation'
+    = yield
+    = render partial: 'layouts/footer'

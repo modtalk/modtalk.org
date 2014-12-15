@@ -1,0 +1,15 @@
+- content_for :head do
+  = render partial: 'layouts/opengraph', locals: { title: t('modtalk_name'), url: downloads_url }
+.units-row
+  .unit-100
+    %h3 Thanks for downloading
+    %p
+      Your download should start automatically, if it does not,
+      = link_to 'click here.', download_fetch_path(@download)
+.units-row
+  .unit-100
+    %h3 Getting Started Guide
+    %p Ready to get started developing? Follow our easy tutorial
+    %ul
+      %li= link_to 'Getting Started', docs_path('getting_started')
+      %li= link_to 'API Reference', docs_path('api_reference')

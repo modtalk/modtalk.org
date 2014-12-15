@@ -1,0 +1,8 @@
+%header.group
+  %nav.navbar.navbar-left.nav-fullwidth#navbar
+    =link_to root_path do
+      %span#title Modtalk
+  %nav.navbar.navbar-right.nav-fullwidth#navbar
+    %ul#links
+      %li= link_to t('downloads'), download_root_path
+      %li= link_to 'Contribute', contribute_root_path

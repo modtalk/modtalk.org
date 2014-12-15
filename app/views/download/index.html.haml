@@ -1,0 +1,27 @@
+- content_for :head do
+  = render partial: 'layouts/opengraph', locals: { title: t('modtalk_name'), url: download_root_url }
+.units-row
+  .unit-100
+    %h3 Download Modtalk
+    = link_to 'Download Now', download_fetch_path(@download_type.version, @download_type.platform, @download_type.format), :class => 'action-button'
+    #file_name= @download_type.file_name
+.units-row
+  .unit-100
+    %h3 Change List
+    %p What does this release introduce
+    %ul
+      %li First public release
+      %li Broken compiler
+.units-row
+  .unit-50
+    %h3 Other Platforms
+    %p Need to download Modtalk for a different platform than the auto detected one?
+    %ul
+      %li Debian/Ubuntu (.deb)
+      %li Fedora (.yum)
+      %li Generic Linux (.tar.gz)
+  .unit-50
+    %h3 Unstable versions
+    %ul
+      %li Nightly builds
+      %li Older versions

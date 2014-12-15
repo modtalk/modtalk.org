@@ -1,0 +1,41 @@
+footer {
+	background-color: $modtalk_logo_blue;
+	color: #748bcf;
+	font-size: 1em;
+	text-align: center;
+
+	a, a:visited {
+		color: $footer_list_text_color;
+	}
+
+	a:hover {
+		color: $hyperlink_actionlink_color;
+	}
+
+	.container {
+		overflow: hidden;
+	}
+
+	ul {
+		li:first-child, li:first-child a {
+			color: white;
+			font-size: large;
+			margin-bottom: 0.5em;
+		}
+
+		li {
+			text-align: left;
+		}
+	}
+
+	.copyright {
+		clear: both;
+		float: left;
+		text-align: left;
+	}
+
+	.logo_name {
+		font-size: xx-large;
+		color: #A8B5DD;
+	}
+}

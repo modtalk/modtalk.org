@@ -1,0 +1,17 @@
+%section#contribute.horizontal-layout.tiled-section
+  %div{:style => "width: 900px"}
+    %article
+      %span $
+      %h1 Donate money
+      %p Money helps keep the servers running...
+      = link_to 'Donate now', contribute_donate_path
+    %article
+      %span 🐞
+      %h1 Report a bug
+      %p Found an issue in the codebase? Help us out by reporting it
+      = link_to 'Report', contribute_report_bug_path
+    %article
+      = image_tag 'community.jpg', :style => 'height: 64px'
+      %h1 Join the community
+      %p Join the discussion in the chat rooms and social media.
+      = link_to 'Community', ''

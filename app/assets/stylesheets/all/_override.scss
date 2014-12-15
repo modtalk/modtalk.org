@@ -1,0 +1,70 @@
+body {
+	background-image: image-url('lighthouse-16x9-1600.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+a {
+	color: #354b8d;
+	text-decoration: none;
+}
+a hover {
+	color: #4bb69d;
+	text-decoration: underline;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: serif;
+}
+header {
+	background: #ffffff;
+	vertical-align: middle;
+	margin-bottom: 25px;
+}
+#navbar {
+	margin-bottom: 0;
+}
+#links {
+	padding-top: 15px;
+	font-size: 1.2em;
+	line-height: 2em;
+	vertical-align: middle;
+	margin-bottom: 0;
+}
+nav {
+	line-height: 35px;
+	vertical-align: middle;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 0;
+}
+#mod-logo {
+	margin: 10px;
+	width: 60px;
+}
+#title {
+	display: inline;
+	font-size: 2em;
+	line-height: 2em;
+	vertical-align: middle;
+}
+.units-row {
+	margin-left: 5%;
+	margin-right: 5%;
+	min-height: 50px;
+}
+.unit-100, .unit-90, .unit-80, .unit-75, .unit-70, .unit-66, .unit-65, .unit-60, .unit-50, .unit-40, .unit-35, .unit-33, .unit-30, .unit-25, .unit-20, .unit-10 {
+	padding: 25px;
+	padding-right: 5%;
+	padding-left: 5%;
+	height: 100%;
+	border-radius: 15px;
+	height: inherit;
+	background-color: rgba(255, 255, 255, 0.75);
+}
+#footer {
+	background-color: white;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}

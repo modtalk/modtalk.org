@@ -1,0 +1,12 @@
+%h1 Think you've found a bug? Here's what you need to do
+%ol
+  %li
+    Does it reproduce on the latest stable version?
+    %p
+      = link_to 'Download', downloads_path
+      the latest version and verify it still happens
+  %li
+    Has it already been reported?
+    %p
+      %input.search_box{"data-results-pane" => "big_search", :type => "text"}/
+    %ul#big_search

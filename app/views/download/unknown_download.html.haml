@@ -1,0 +1,7 @@
+- content_for :head do
+  = render partial: 'layouts/opengraph', locals: { title: t('modtalk_name'), url: downloads_url }
+.units-row
+  .unit-100
+    %h3 Download failed
+    %p We don't know about this version
+    = link_to download_root_path

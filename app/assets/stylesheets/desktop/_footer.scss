@@ -1,0 +1,33 @@
+footer {
+	a:hover {
+		color: #d1a23e;
+	}
+	ul {
+		margin: 2em 4em;
+		float: left;
+		height: 72px;
+		width: 100px;
+
+		li:first-child, li:first-child a {
+			font-size: large;
+			margin-bottom: 0.5em;
+			color: white;
+		}
+	}
+
+	svg {
+		display: none;
+	}
+
+	.logo_name {
+		float: right;
+	}
+
+	.container {
+		display: inline-block;
+	}
+
+	.copyright {
+		margin-left: 2em;
+	}
+}

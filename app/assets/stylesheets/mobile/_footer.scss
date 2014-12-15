@@ -1,0 +1,41 @@
+footer {
+	padding-top: 2em;
+
+	li {
+		height: 2em;
+		padding-left: 2em;
+	}
+
+	li:first-child {
+		padding-top: 1.5em;
+		text-align: center;
+		padding-left: 0;
+	}
+
+	.copyright {
+		margin-top: 2em;
+		text-align: center;
+		width: 100%;
+	}
+
+	svg {
+		width: 64px;
+		height: 64px;
+		// WTF:
+		position: relative;
+		right: -150px;
+		top: -17px;
+
+		polygon {
+			fill: #A8B5DD;
+			stroke: #505F8E;
+			stroke-width: 4px;
+		}
+	}
+
+	.logo_name {
+		clear: both;
+		position: relative;
+		left: -35px
+	}
+}

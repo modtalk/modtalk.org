@@ -1,0 +1,39 @@
+.img-header
+  %h1.tiled-section{:title => "News"} News
+%aside
+  %ul
+    %li
+      2014
+      %ul
+        %li
+          %a{:href => "#2014-11-05"} November
+    %li
+      2013
+      %ul
+        %li
+          %a{:href => "#2013-06-09"} June
+.units-row
+  .unit-100
+    %h3
+    %p Modtalk implements a modular version of the Smalltalk-80 programming language
+%section#news.tiled-section
+  %div{:style => "width: 300px"}
+    %article
+      %a{:name => "2014-11-05"}
+      = image_tag "argentina_map.png"
+      .headers
+        %h2 FAST
+        %h3 Argentina
+      %p We are excited to present at FAST 2014 in Cordoba, Argentina.
+      %p.date
+        in #{time_ago_in_words(DateTime.new(2014, 11, 5))}
+    %article
+      %a{:name => "2013-06-09"}
+      = image_tag "arizona_map.png"
+      .headers
+        %h2 STIC
+        %h3 Arizona
+      %p We presented at STIC in Arizona
+      %p.date
+        = time_ago_in_words(DateTime.new(2013, 6, 9))
+        ago
