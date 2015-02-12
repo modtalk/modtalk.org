@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'search' => 'search#search'
   namespace 'newsletter' do
     post 'subscribe'
+    get 'unsubscribe'
   end
   namespace 'contribute' do
     root action: :index

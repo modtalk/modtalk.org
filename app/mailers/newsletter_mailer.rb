@@ -1,14 +1,18 @@
 class NewsletterMailer < ActionMailer::Base
-	default :from => 'modtalk@modtalk.org'
+  default from: 'Modtalk <modtalk@modtalk.org>'
 
-	def subscribe_notification(name, email)
-		@params = {:name => name, :email => email}
-		@date = Time.now.utc
+  def subscribe_notify(email)
+    @to_email = email
+    @date = Time.now.utc
+    layout = 'layouts/mailers/single_column'
 
-		headers 'X-Mailer' => 'Ruby'
-
-		mail :to => email, :subject => 'Modtalk Mailing List Confirmation' do |format|
-			format.text
-		end
-	end
+    mail to: email, subject: 'Modtalk Mailing List Confirmation' do |format|
+      format.html {
+        render layout: layout
+      }
+      format.text {
+        render layout: layout
+      }
+    end
+  end
 end

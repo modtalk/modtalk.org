@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded',function () {
 	'use strict'
 	var body = document.body;
+	var title_elem = document.getElementsByTagName('title')[0];
 	var template = document.getElementById('result').innerHTML;
 	Mustache.parse(template);
 	var handle_results = function(result_pane, obj) {
@@ -13,15 +14,16 @@ document.addEventListener('DOMContentLoaded',function () {
 			result_pane.appendChild(result_elem);
 		};
 	};
+	var get_url = function(query) {
+		return query === "" ? '/search' : '/search?query=query';
+	};
+	var get_title = function(query) {
+		return query === "" ? 'Modtalk Search' : 'Modtalk Search: ' + query;
+	};
 	var mutate_history = function(query) {
-		var title = document.getElementsByTagName('title')[0];
-		if (query == "") {
-			history.replaceState({}, 'Modtalk Search', '/search');
-			title.innerHTML = 'Modtalk Search';
-		} else {
-			history.replaceState({ query: query }, 'Modtalk Search: ' + query, '/search?query=' + query);
-			title.innerHTML = 'Modtalk Search: ' + query;
-		}
+		var url = get_url(query);
+		var title = get_title(query);
+		history.replaceState({ query : query}, title, url);
 	};
 	var stop_typing = function(results) {
 		return function(evt) {
@@ -36,7 +38,7 @@ document.addEventListener('DOMContentLoaded',function () {
 						return;
 					handle_results(results, JSON.parse(this.responseText));
 				};
-				req.open('get', '/search.json?query=' + query, true);
+				req.open('get', get_url(query), true);
 				req.send();
 			}
 		};
@@ -46,7 +48,7 @@ document.addEventListener('DOMContentLoaded',function () {
 		if (target_id == null)
 			return;
 		var results = document.getElementById(target_id);
-		elem.addEventListener('keyup', debounce(stop_typing(results), 150));
+		elem.addEventListener('keypress', debounce(stop_typing(results), 150));
 	};
 	var search_autocomplete = function() {
 		var searchboxes = document.getElementsByClassName('search-box');

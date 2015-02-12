@@ -1,7 +1,7 @@
 class DefaultController < ApplicationController
-	def index
-	end
+  def index
+  end
 
-	def license
-	end
+  def license
+  end
 end
