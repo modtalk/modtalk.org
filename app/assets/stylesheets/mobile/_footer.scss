@@ -1,21 +1,28 @@
 footer {
-	padding-top: 2em;
-
 	li {
 		height: 2em;
 		padding-left: 2em;
+		display: none;
+	}
+	
+	li:hover {
+		color: #4F67B0;
 	}
 
 	li:first-child {
 		padding-top: 1.5em;
 		text-align: center;
 		padding-left: 0;
+		display: block;
 	}
 
 	.copyright {
-		margin-top: 2em;
 		text-align: center;
 		width: 100%;
+	}
+
+	.logo-text {
+		margin-top: 1em;
 	}
 
 	svg {

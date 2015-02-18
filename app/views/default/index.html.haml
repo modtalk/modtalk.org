@@ -1,23 +1,50 @@
 - content_for :head do
   = render partial: 'layouts/opengraph', locals: { title: t('modtalk_name'), url: root_url }
-.units-row
-  .unit-100
-    %h3 Modtalk brings modules to Smalltalk
-    %p Modtalk implements a modular version of the Smalltalk-80 programming language
-.units-row
-  .unit-100
-    %h3 Features
-    %h4
-.units-row
-  .unit-100
-    %h3 Download
-    %p Currently, Modtalk is not available for download. Please check back soon because we're really excited about releasing
-.units-row
-  .unit-100
-    %h3 Contribute to Modtalk
-    %p Have a really good idea for Modtalk?
-.units-row
-  .unit-100
-    %h3 Roadmap
-    %ul
-      %li Modtalk inside of Modtalk
+%header
+  .container
+    .row
+      .col-md-6
+        .branding
+          #span.name Modtalk
+          .summary A compiled, modular implementation of Smalltalk
+      .col-md-6
+        .branding
+          .tag Beautifully simple code
+          .code-snippet
+            %ul
+              %li printOn: aStream
+              %li &nbsp;
+              %li
+                %ul
+                  %li 
+                    %span.aStream nextPutAll: 'kurtIsCrazy'.
+.container
+  .row
+    .col-md-6
+      %h2 Get started in 5 minutes
+      %p Developing your first application is simple with Modtalk
+      %p Add some short information on getting started here. Auto detect OS to link to relevant getting started
+      = link_to 'Getting started', docs_path('getting_started')
+.callout.lighthouse
+  .img-lighthouse
+  .container
+    .content
+      %h3 Smalltalk for the modern production environment
+.container
+  %h1 Features
+  .row
+    .col-md-6
+      %h2 Self-contained
+      %p Smalltalk programs are compiled into standalone, static binaries without a separate runtime. This means there's no changing image file that contains all of your code.
+      %p Your code is unmodifiable, guaranteeing consistent applications
+  .row
+    .col-md-6
+      %h2 Portable
+      %p Modtalk uses the LLVM compiler toolchain to compile your application, along with the Modtalk runtime, for any platform that LLVM supports
+      %p Modtalk applications can run on Linux, Mac OS X, Windows*, web browsers*, etc
+      %p (* coming soon)
+  .row
+    .col-md-6
+      %h2 Modular
+      %p Your Modtalk applications only include the classes and methods that you actually call. This means that you can track licenses.
+      %p No more developer tools in your production environment

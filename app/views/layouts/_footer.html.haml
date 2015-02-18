@@ -1,29 +1,32 @@
 %footer
   .container
-    %ul
-      %li= link_to 'Documentation', docs_path
-      %li= link_to 'Getting Started', docs_path('getting_started')
-      %li= link_to 'API Reference', docs_path('api_reference')
-    %ul
-      %li Downloads
-      %li= link_to 'Latest Version', download_root_path
-    %ul
-      %li= link_to 'Contribute', contribute_root_path
-      %li= link_to 'Report a bug', contribute_report_bug_path
-      %li= link_to 'Donate', contribute_donate_path
-    %ul
-      %li Modtalk
-      %li= link_to 'License', license_path
-      %li= link_to 'GitHub', github_path
-      %li= link_to 'Facebook', facebook_path
-      %li= link_to 'Twitter', twitter_path
-    %span.logo_name.unselectable
-      %svg{version: "1.1", viewbox: "0 0 256 256", xmlns: "http://www.w3.org/2000/svg"}
-        %polygon{points: "85.501,204.763 0,153.571 0,51.19 85.501,0 171,51.19 171,153.572"}
-        %polygon{points: "128,179.4 85,153.806 85,102.616 128,77.021 171,102.615 171,153.806"}
-        %polygon{points: "213.5,179.402 171,153.807 171,102.615 213.501,77.02 256,102.616 256,153.807"}
-        %polygon{points: "170,256 127,230.405 127,179.214 171,153.809 213,179.214 213,230.405"}
-      %span modtalk
-    .copyright
-      %div &copy; 2014 The Modtalk Group
-      %div= yield :image_attribute
+    .row
+      .col-md-3.col-xs-12.col-sm-6
+        %ul
+          %li= link_to 'Documentation', docs_path
+          %li= link_to 'Getting Started', docs_path('getting_started')
+          %li= link_to 'API Reference', docs_path('api_reference')
+      .col-md-3.col-xs-12.col-sm-6
+        %ul
+          %li= link_to 'Downloads', download_root_path
+          %li= link_to 'Latest Version', download_root_path
+      .clearfix.visible-xs-block
+      .col-md-3.col-xs-12.col-sm-6
+        %ul
+          %li= link_to 'Contribute', contribute_root_path
+          %li= link_to 'Report a bug', contribute_report_bug_path
+          %li= link_to 'Donate', contribute_donate_path
+      .col-md-3.col-xs-12.col-sm-6
+        %ul
+          %li Modtalk
+          %li= link_to 'License', license_path
+          %li= link_to 'GitHub', github_path
+          %li= link_to 'Facebook', facebook_path
+          %li= link_to 'Twitter', twitter_path
+    .row
+      .col-xs-12
+        %h1.logo-text modtalk
+    .row
+      .copyright.col-xs-12
+        %div &copy; #{Time.now.year} The Modtalk Group
+        %div= yield :image_attribute

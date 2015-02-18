@@ -12,4 +12,5 @@
 //
 //= require_tree .
 //= require nprogress
+//= require turbolinks
 //= require mustache

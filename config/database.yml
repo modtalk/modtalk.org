@@ -10,13 +10,8 @@ default: &default
   timeout: 5000
 
 development:
-  adapter: mysql2
-  host: srv1.technowizardry.net
-  username: ajacques
-  password: VjBGe9T4n6haaMJAXJLF
-  database: ModtalkOrg
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

@@ -13,8 +13,8 @@
     %meta{content: "width=device-width, initial-scale=1.0, maximum-scale=1.0", name: "viewport"}/
     %meta{content: "Modtalk.org", property: "apple-mobile-web-app-title"}/
     %link{href: image_url('modtalk_logo-144px.png'), rel: "apple-touch-icon", size: "144x144"}/
-    = stylesheet_link_tag 'application', media: :screen
-    = javascript_include_tag 'application.js'
+    = stylesheet_link_tag 'application', media: :screen, async: true, data: { turbolinks_track: true }
+    = javascript_include_tag 'application.js', async: true, data: { turbolinks_track: true }
     - if content_for?(:head) then
       = yield :head
   %body

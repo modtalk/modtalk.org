@@ -1,8 +1,15 @@
-%header.group
-  %nav.navbar.navbar-left.nav-fullwidth#navbar
-    = link_to root_path do
-      %span#title Modtalk
-  %nav.navbar.navbar-right.nav-fullwidth#navbar
-    %ul#links
-      %li= link_to t('downloads'), download_root_path
-      %li= link_to 'Contribute', contribute_root_path
+%nav.navbar.navbar-default
+  .container
+    .navbar-header
+      = link_to root_path, class: 'navbar-brand' do
+        .logo-text &#xe600; modtalk
+      .search-button.visible-xs-block
+        = link_to 'Search', '', class: 'search-button'
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li= link_to 'Downloads', contribute_root_path
+        %li= link_to 'Documentation', docs_path
+        %li= link_to 'News', news_path
+      .navbar-form.navbar-right
+        .form-group
+          = text_field_tag 'search', '', class: 'form-control search-box', placeholder: 'Search', tabindex: 1, data: {results_pane: 'container'}

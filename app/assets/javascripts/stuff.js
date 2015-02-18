@@ -12,50 +12,6 @@ document.addEventListener('DOMContentLoaded',function () {
 		});
 	});
 
-	// Link Hijacker
-	var fast_link_hijack = function() {
-		var fast_loader = function(url, push) {
-			NProgress.start();
-			var req = new XMLHttpRequest();
-			req.onload = function () {
-				if (this.status != 200) return;
-				console.log("Fast Link Request Done");
-				var d = document.getElementById('content');
-				if (push) history.pushState({ 'path': url, scrollX: window.scrollX, scrollY : window.scrollY}, 'Page 2', url);
-				d.innerHTML = this.responseText;
-				NProgress.done();
-				window.scrollTo(0, 0);
-			};
-			req.open("get", url + ".partial", true);
-			console.log("Fast Link Request: " + url);
-			req.send();
-		};
-		window.onpopstate = function(evt) {
-			console.log("History API onpopstate: " + evt.state);
-			if (evt.state == undefined)
-				fast_loader('index', false);
-			else
-				fast_loader(evt.state.path, false);
-		};
-		var links = document.getElementsByClassName('fast-link');
-		var length = links.length;
-		for (var i = 0; i < length; i++)
-		{
-			links[i].addEventListener('click', function(evt) {
-				evt.preventDefault();
-				fast_loader(this.href, true);
-				return false;
-			});
-		}
-		console.log("Registered " + length + " fast links");
-	};
-
-	if (history.pushState)
-	{
-		NProgress.configure({showSpinner: false});
-		//fast_link_hijack();
-	}
-
 	var simulate_mouse_click = function(elem, x, y) {
 		var evt = document.createEvent('MouseEvent');
 		evt.initMouseEvent('click', true, false, document.defaultView,
@@ -93,5 +49,5 @@ document.addEventListener('DOMContentLoaded',function () {
 		});
 	};
 
-	search_handler();
+	Turbolinks.enableProgressBar();
 }, false);

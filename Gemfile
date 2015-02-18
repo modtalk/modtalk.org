@@ -7,6 +7,11 @@ gem 'rails', '4.2'
 gem 'haml'
 gem 'haml-rails'
 
+gem 'bootstrap-sass'
+
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -28,7 +33,7 @@ group :production do
   gem 'mysql2'
 end
 
-gem 'thin'
+gem 'unicorn'
 
 # Searching plugin
 gem 'elasticsearch'

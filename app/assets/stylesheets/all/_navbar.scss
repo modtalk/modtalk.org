@@ -1,0 +1,13 @@
+.navbar-header {
+	min-width: 102px; // Prevent relayout due to non downloaded font
+}
+
+body .navbar {
+	margin-bottom: 0px;
+	border: none;
+	border-radius: 0px;
+}
+
+.logo-text {
+	font-family: modtalk;
+}
