@@ -3,13 +3,9 @@
     .navbar-header
       = link_to root_path, class: 'navbar-brand' do
         .logo-text &#xe600; modtalk
-      .search-button.visible-xs-block
-        = link_to 'Search', '', class: 'search-button'
-    .collapse.navbar-collapse
-      %ul.nav.navbar-nav
+      = link_to 'Search', search_path, class: 'search-button visible-xs-block'
+    %div
+      %ul.nav.navbar-nav.navbar-collapse.collapse
         %li= link_to 'Downloads', contribute_root_path
         %li= link_to 'Documentation', docs_path
         %li= link_to 'News', news_path
-      .navbar-form.navbar-right
-        .form-group
-          = text_field_tag 'search', '', class: 'form-control search-box', placeholder: 'Search', tabindex: 1, data: {results_pane: 'container'}

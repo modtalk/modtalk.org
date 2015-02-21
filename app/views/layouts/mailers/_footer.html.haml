@@ -1,0 +1,11 @@
+%p
+  = "This message was sent to #{@to_email}. You can can always "
+  = link_to 'unsubscribe', newsletter_unsubscribe_path(token: 'test')
+  if you do not wish to receive these emails anymore.
+= link_to 'Website', root_path
+= link_to 'GitHub', github_path
+= link_to 'Twitter', twitter_path
+= link_to 'Facebook', facebook_path
+%br
+%br
+&copy; 2014 The Modtalk Group

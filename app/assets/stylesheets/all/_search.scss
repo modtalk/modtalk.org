@@ -1,0 +1,7 @@
+#search-results .indicator {
+	display: none;
+}
+
+#search-results.loading .indicator {
+	display: block;
+}

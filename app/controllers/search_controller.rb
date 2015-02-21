@@ -1,10 +1,9 @@
 class SearchController < ApplicationController
   def search
-    client = Elasticsearch::Client.new
     if params[:query].nil? then
       @results = []
     else
-      @results = SearchHelper.relevant_issues(client, params[:query])
+      @results = Page.search(params[:query])
     end
 
     respond_to do |format|

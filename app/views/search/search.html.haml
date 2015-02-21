@@ -1,9 +1,7 @@
 - content_for :page_title do
   Modtalk Search
-.units-row
-  .unit-centered.unit-50
-    %h1 Search
-    %input.search-box{ data: { results_pane: :results_pane }, value: params[:query] }
+%header
+  %h1 Search
 .units-row#results_pane
   = render partial: 'result_template_ruby', collection: @results, as: :item 
 = render partial: 'result_template'

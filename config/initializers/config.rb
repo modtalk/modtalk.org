@@ -1,18 +1,19 @@
-yaml = YAML.load_file("#{Rails.root}/config/configuration.yml")
-@config = {}
-if yaml.is_a?(Hash)
-  @config.merge!(yaml['default']) if yaml['default']
-  @config.merge!(yaml[Rails.env]) if yaml[Rails.env]
-end
+require 'app/config'
 
-@config = HashWithIndifferentAccess.new(@config)
+email_delivery = ModtalkWebsite::Config.email_delivery
+secret_key = ModtalkWebsite::Config.secret_key
+resque = ModtalkWebsite::Config.resque
 
-if @config['email_delivery']
-  @config['email_delivery'].each do |key, value|
+if email_delivery
+  email_delivery.each do |key, value|
     ActionMailer::Base.send("#{key}=", value)
   end
 end
 
-if @config['secret_key']
-  Rails.application.config.secret_token = @config['secret_key']
+if secret_key
+  Rails.application.config.secret_token = secret_key
+end
+
+if resque
+  Resque.redis = resque
 end

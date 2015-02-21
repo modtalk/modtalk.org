@@ -1,23 +1,26 @@
-function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		clearTimeout(timeout);
-		timeout = setTimeout(function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		}, wait);
-		if (immediate && !timeout) func.apply(context, args);
-	};
-};
-
 (function() {
+	function debounce(func, wait, immediate) {
+		var timeout;
+		return function() {
+			var context = this, args = arguments;
+			clearTimeout(timeout);
+			timeout = setTimeout(function() {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			}, wait);
+			if (immediate && !timeout) func.apply(context, args);
+		};
+	};
 	var loader = (function () {
 		'use strict'
 		var body = document.body;
 		var title_elem = document.getElementsByTagName('title')[0];
-		var template = null; //document.getElementById('result').innerHTML;
-		//Mustache.parse(template);
+		var box_root = document.getElementById('search-box-root');
+		var search = document.getElementById('search');
+		var template = document.getElementById('result').innerHTML;
+		var finish_load = function() {
+			Mustache.parse(template);
+		};
 		var handle_results = function(result_pane, obj) {
 			while (result_pane.firstChild) {
 				result_pane.removeChild(result_pane.firstChild);
@@ -29,7 +32,10 @@ function debounce(func, wait, immediate) {
 			};
 		};
 		var get_url = function(query) {
-			return query === "" ? '/search' : '/search?query=query';
+			return query === "" ? '/search' : '/search?query=' + encodeURIComponent(query);
+		};
+		var get_req_url = function(query) {
+			return query === "" ? '/search' : '/search.json?query=' + encodeURIComponent(query);
 		};
 		var get_title = function(query) {
 			return query === "" ? 'Modtalk Search' : 'Modtalk Search: ' + query;
@@ -37,7 +43,12 @@ function debounce(func, wait, immediate) {
 		var mutate_history = function(query) {
 			var url = get_url(query);
 			var title = get_title(query);
-			history.replaceState({ query : query}, title, url);
+			var new_state = { query : query, type : 'search' };
+			if (history.state.type === 'search') {
+				history.replaceState(new_state, title, url);
+			} else {
+				history.pushState(new_state, title, url);
+			}
 		};
 		var stop_typing = function(results) {
 			return function(evt) {
@@ -52,7 +63,7 @@ function debounce(func, wait, immediate) {
 							return;
 						handle_results(results, JSON.parse(this.responseText));
 					};
-					req.open('get', get_url(query), true);
+					req.open('get', get_req_url(query), true);
 					req.send();
 				}
 			};
@@ -69,11 +80,28 @@ function debounce(func, wait, immediate) {
 			for (var i = searchboxes.length - 1; i >= 0; i--) {
 				register_events(searchboxes[i]);
 			};
+			var button = document.getElementsByClassName('search-button');
+			for (var i = 0; i < button.length; i++) {
+				button[i].addEventListener('click', function(evt) {
+					evt.preventDefault();
+					box_root.classList.toggle('hidden-xs');
+
+					search.focus();
+					return false;
+				})
+			};
 		};
 		search_autocomplete();
+		return {
+			finish: finish_load
+		}
 	});
-	document.addEventListener('DOMContentLoaded', loader);
-	if (document.readyState === "complete" || document.readyState === "interactive") {
-		loader();
-	}
+	document.onreadystatechange = function () {
+		if (document.readyState == "interactive") {
+			loader = loader();
+		} else if (document.readyState === "complete") {
+			loader().finish();
+		}
+	};
+	document.addEventListener('page:change', loader);
 })();

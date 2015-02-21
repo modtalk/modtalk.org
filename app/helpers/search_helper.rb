@@ -2,7 +2,7 @@ include UrlHelper
 
 module SearchHelper
   def self.relevant_issues(client, query)
-    results = client.search index: 'redmineapp_production', body: {
+    results = client.search index: ModtalkWebsite::Config.search[:index], body: {
       query: {
         bool: {
           must: [
