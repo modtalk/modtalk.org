@@ -1,7 +1,26 @@
-#search-results .indicator {
+#search-pane {
+	position: absolute;
+	background-color: #eee;
 	display: none;
+	width: 100%;
+	z-index: 5;
+	transition: height 1s ease-in-out;
+	padding-bottom: 2em;
+
+	.indicator {
+		display: none;
+		width: 100%;
+		height: 48px;
+		fill: 'black';
+	}
 }
 
-#search-results.loading .indicator {
+#search-pane.searching {
+	.indicator {
+		display: block;
+	}
+}
+
+#search-pane.visible {
 	display: block;
 }

@@ -1,6 +1,5 @@
 class DownloadController < ApplicationController
   def index
-    @ua = UserAgent.parse(request.user_agent)
     @download_type = Download.first
   end
 

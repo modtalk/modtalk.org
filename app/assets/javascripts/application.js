@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require_tree .
-//= require nprogress
 //= require turbolinks
 //= require mustache
+
+Turbolinks.enableProgressBar();

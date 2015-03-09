@@ -15,7 +15,7 @@
 		'use strict'
 		var body = document.body;
 		var title_elem = document.getElementsByTagName('title')[0];
-		var box_root = document.getElementById('search-box-root');
+		var box_root = document.getElementById('search-pane');
 		var search = document.getElementById('search');
 		var template = document.getElementById('result').innerHTML;
 		var finish_load = function() {
@@ -30,6 +30,7 @@
 				result_elem.innerHTML = Mustache.render(template, obj[i]);
 				result_pane.appendChild(result_elem);
 			};
+			box_root.classList.toggle('searching', false);
 		};
 		var get_url = function(query) {
 			return query === "" ? '/search' : '/search?query=' + encodeURIComponent(query);
@@ -41,6 +42,7 @@
 			return query === "" ? 'Modtalk Search' : 'Modtalk Search: ' + query;
 		};
 		var mutate_history = function(query) {
+			return;
 			var url = get_url(query);
 			var title = get_title(query);
 			var new_state = { query : query, type : 'search' };
@@ -54,7 +56,7 @@
 			return function(evt) {
 				var query = this.value;
 				mutate_history(query);
-				if (query === "" || (evt.keyCode < 32 && evt.keyCode != 8)) {
+				if (false) {
 					results.innerHTML = '';
 				} else {
 					var req = new XMLHttpRequest()
@@ -64,6 +66,7 @@
 						handle_results(results, JSON.parse(this.responseText));
 					};
 					req.open('get', get_req_url(query), true);
+					box_root.classList.toggle('searching', true);
 					req.send();
 				}
 			};
@@ -73,7 +76,7 @@
 			if (target_id == null)
 				return;
 			var results = document.getElementById(target_id);
-			elem.addEventListener('keypress', debounce(stop_typing(results), 150));
+			elem.addEventListener('input', debounce(stop_typing(results), 150));
 		};
 		var search_autocomplete = function() {
 			var searchboxes = document.getElementsByClassName('search-box');
@@ -84,8 +87,7 @@
 			for (var i = 0; i < button.length; i++) {
 				button[i].addEventListener('click', function(evt) {
 					evt.preventDefault();
-					box_root.classList.toggle('hidden-xs');
-
+					box_root.classList.toggle('visible');
 					search.focus();
 					return false;
 				})
