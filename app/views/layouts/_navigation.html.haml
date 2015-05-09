@@ -2,10 +2,5 @@
   .container
     .navbar-header
       = link_to root_path, class: 'navbar-brand' do
-        .logo-text &#xe600; modtalk
+        .logo-text &#xe600;&nbsp;modtalk
       = link_to "\003", search_path, class: 'search-button visible-xs-block glyphicon glyphicon-search navbar-brand'
-    %div
-      %ul.nav.navbar-nav.navbar-collapse.collapse
-        %li= link_to 'Downloads', contribute_root_path
-        %li= link_to 'Documentation', docs_path
-        %li= link_to 'News', news_path

@@ -1,37 +1,67 @@
 footer {
-	background-color: $modtalk_logo_blue;
-	color: #748bcf;
-	font-size: 1em;
-	text-align: center;
+  background-color: $modtalk_logo_blue;
+  color: #748bcf;
+  font-size: 1em;
+  text-align: center;
 
-	a, a:visited {
-		color: $footer_list_text_color;
-	}
+  a, a:visited, a:active {
+    color: $footer_list_text_color;
+  }
 
-	a:hover {
-		color: $hyperlink_actionlink_color;
-	}
+  a:hover {
+    color: $hyperlink_actionlink_color;
+  }
 
-	.container {
-		overflow: hidden;
-	}
+  .container {
+    overflow: hidden;
+  }
 
-	ul {
-		li:first-child, li:first-child a {
-			color: white;
-			font-size: large;
-			margin-bottom: 0.5em;
-		}
-	}
+  li {
+    padding-top: 1.5em;
+    text-align: center;
+    padding-left: 0;
+    display: block;
+  }
 
-	.copyright {
-		clear: both;
-		float: left;
-		text-align: left;
-	}
+  ul {
+    li:first-child, li:first-child a {
+      color: white;
+      font-size: large;
+      margin-bottom: 0.5em;
+    }
+  }
 
-	.logo_name {
-		font-size: xx-large;
-		color: #A8B5DD;
-	}
+  svg {
+    width: 64px;
+    height: 64px;
+    // WTF:
+    position: relative;
+    right: -150px;
+    top: -17px;
+
+    polygon {
+      fill: #A8B5DD;
+      stroke: #505F8E;
+      stroke-width: 4px;
+    }
+  }
+
+  .copyright {
+    clear: both;
+    float: left;
+    text-align: center;
+    width: 100%;
+  }
+
+  .logo-text {
+    margin-top: 1em;
+  }
+
+  .logo_name {
+    font-size: xx-large;
+    color: #A8B5DD;
+    clear: both;
+    position: relative;
+    left: -35px
+   }
 }

@@ -1,9 +1,11 @@
+@import 'bootstrap/variables';
+
 header {
-	padding: 0.7em;
+  padding: 0.7em;
 }
 
 nav .search-button {
   float: right;
-  height: 50px;
+  height: $navbar-height;
   padding: 15px;
 }

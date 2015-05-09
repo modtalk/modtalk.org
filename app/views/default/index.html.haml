@@ -1,14 +1,10 @@
 - content_for :head do
   = render partial: 'layouts/opengraph', locals: { title: t('modtalk_name'), url: root_url }
 = render partial: 'header'
-= render partial: 'example'
 .callout.lighthouse
   .img-lighthouse
   .container
     .row
       %h3 Smalltalk for the modern production environment
 .container
-  .row
-    .col-sm-12
-      %h2 What is Modtalk
-      %p Modtalk is a project to implement a compiled Smalltalk with compile time support for namespaces
+  = render partial: 'blog_post', collection: @rss.items.first(3), as: :post
