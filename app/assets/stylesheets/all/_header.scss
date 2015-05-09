@@ -1,7 +1,7 @@
 header {
-	background-image: linear-gradient(to right, #B7E26B 0%, #C7E496 100%);
-	//background-image: linear-gradient(to right, #004208 0%, #004208 100%);
-	//color: #E5E5E5;
+  //background-image: linear-gradient(to right, #B7E26B 0%, #C7E496 100%);
+  padding: 2em;
+  background-color: #E5E5E5;
 }
 
 .branding {
@@ -36,16 +36,15 @@ header {
 		background-image: image-url('lighthouse-16x9-1600.jpg');
 		background-size: cover;
 		background-position: 50% 50%; // Temp remove later
-		-webkit-filter: blur(1px);
 	}
-	.img-lighthouse,.container {
+	.img-lighthouse {
 		position: absolute;
 		width: 100%;
 		height: 100%;
 		top: 0;
 		left: 0;
 	}
-	.container {
+	h3 {
 		z-index: 10;
 	}
 }

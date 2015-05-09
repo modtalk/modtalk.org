@@ -1,56 +1,14 @@
 - content_for :head do
   = render partial: 'layouts/opengraph', locals: { title: t('modtalk_name'), url: root_url }
-%header
-  .container
-    .row
-      .col-md-6
-        .branding
-          %span.name
-            %svg{version: '1.1', viewbox: '0 0 256 256', xmlns: 'http://www.w3.org/2000/svg'}
-              %polygon{fill: '#354B8D', points: '85,204 0,153 0,51 85,0 171,51 171,153'}
-              %polygon{fill: '#48B69D', points: '128,179 85,153 85,102 128,77.021 171,102 171,153'}
-              %polygon{fill: '#F4E935', points: '213,179 171,153 171,102 213,77 256,102 256,153'}
-              %polygon{fill: '#95C440', points: '170,256 127,230 127,179 171,153 213,179 213,230'}
-            %span Modtalk
-          .summary A compiled, modular implementation of Smalltalk
-      .col-md-6
-        .branding
-          .tag Beautifully simple code
-          .code-snippet
-            %ul
-              %li printOn: aStream
-              %li &nbsp;
-              %li
-                %ul
-                  %li 
-                    %span.aStream aStream nextPutAll: 'kurtIsCrazy'.
-.container
-  .row
-    .col-md-6
-      %h2 Get started in 5 minutes
-      %p Developing your first application is simple with Modtalk
-      %p Add some short information on getting started here. Auto detect OS to link to relevant getting started
-      = link_to 'Getting started', docs_path('getting_started')
+= render partial: 'header'
+= render partial: 'example'
 .callout.lighthouse
   .img-lighthouse
   .container
-    .content
+    .row
       %h3 Smalltalk for the modern production environment
 .container
-  %h1 Features
   .row
-    .col-md-6
-      %h2 Self-contained
-      %p Smalltalk programs are compiled into standalone, static binaries without a separate runtime. This means there's no changing image file that contains all of your code.
-      %p Your code is unmodifiable, guaranteeing consistent applications
-  .row
-    .col-md-6
-      %h2 Portable
-      %p Modtalk uses the LLVM compiler toolchain to compile your application, along with the Modtalk runtime, for any platform that LLVM supports
-      %p Modtalk applications can run on Linux, Mac OS X, Windows*, web browsers*, etc
-      %p (* coming soon)
-  .row
-    .col-md-6
-      %h2 Modular
-      %p Your Modtalk applications only include the classes and methods that you actually call. This means that you can track licenses.
-      %p No more developer tools in your production environment
+    .col-sm-12
+      %h2 What is Modtalk
+      %p Modtalk is a project to implement a compiled Smalltalk with compile time support for namespaces

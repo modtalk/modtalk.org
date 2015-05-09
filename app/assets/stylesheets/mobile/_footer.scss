@@ -1,15 +1,9 @@
 footer {
-	li {
-		height: 2em;
-		padding-left: 2em;
-		display: none;
-	}
-	
 	li:hover {
 		color: #4F67B0;
 	}
 
-	li:first-child {
+	li {
 		padding-top: 1.5em;
 		text-align: center;
 		padding-left: 0;
