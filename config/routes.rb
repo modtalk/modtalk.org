@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'news' => 'news#index'
   get 'license' => 'default#license'
   get 'search' => 'search#search'
+  mount BeaconProxy.new, at: '/monitor'
   namespace 'newsletter' do
     post 'subscribe'
     get 'unsubscribe'

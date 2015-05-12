@@ -25,3 +25,7 @@ body {
 .blog-post .more-link {
   display: block;
 }
+
+.action-link:after {
+	content: "\0000a0\0027a4";
+}

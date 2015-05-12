@@ -93,7 +93,6 @@ GEM
     multipart-post (2.0.0)
     mustache-js-rails (1.0.0)
       railties (>= 3.1, <= 5.0)
-    mysql2 (0.3.18)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     rack (1.6.0)
@@ -169,7 +168,6 @@ DEPENDENCIES
   haml
   haml-rails
   mustache-js-rails
-  mysql2
   rails (= 4.2)
   sass-rails (~> 4.0.3)
   simple-rss

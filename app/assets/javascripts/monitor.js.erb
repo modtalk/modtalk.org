@@ -52,7 +52,7 @@ if(!((new RegExp("MSIE")).test(e.userAgent))){if(e.mimeTypes&&e.mimeTypes.length
 }}r[d]++}}for(t=0;t<_paq.length;t++){if(_paq[t]){R(_paq[t])}}_paq=new v();c={addPlugin:function(W,X){a[W]=X},getTracker:function(W,X){return new D(W,X,L.getVisitorId())},getAsyncTracker:function(){return L}};if(typeof define==="function"&&define.amd){define("piwik",[],function(){return c})}return c}())}if(window&&window.piwikAsyncInit){window.piwikAsyncInit()}(function(){var a=(typeof AnalyticsTracker);if(a==="undefined"){AnalyticsTracker=Piwik}}());if(typeof piwik_log!=="function"){piwik_log=function(b,f,d,g){function a(h){try{return eval("piwik_"+h)}catch(i){}return}var c,e=Piwik.getTracker(d,f);e.setDocumentTitle(b);e.setCustomData(g);c=a("tracker_pause");if(c){e.setLinkTrackingTimer(c)}c=a("download_extensions");if(c){e.setDownloadExtensions(c)}c=a("hosts_alias");if(c){e.setDomains(c)}c=a("ignore_classes");if(c){e.setIgnoreClasses(c)}e.trackPageView();if(a("install_tracker")){piwik_track=function(i,k,j,h){e.setSiteId(k);e.setTrackerUrl(j);e.trackLink(i,h)};e.enableLinkTracking()
 }};
 /*! @license-end */
-};
+}
 var _paq = _paq || [];
 _paq.push(["setCookieDomain", "*.modtalk.org"]);
 _paq.push(['setTrackerUrl', 'monitor']);

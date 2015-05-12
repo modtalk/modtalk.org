@@ -3,8 +3,7 @@
 = render partial: 'header'
 .callout.lighthouse
   .img-lighthouse
-  .container
-    .row
-      %h3 Smalltalk for the modern production environment
 .container
   = render partial: 'blog_post', collection: @rss.items.first(3), as: :post
+  .blog-post
+    %h2= link_to 'Read more on our blog', blog_path, class: 'action-link'

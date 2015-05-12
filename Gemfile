@@ -7,12 +7,12 @@ gem 'rails', '4.2'
 gem 'haml'
 gem 'haml-rails'
 
-gem 'bootstrap-sass'
-
 gem 'simple-rss'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+group :assets, :development do
+  gem 'turbolinks'
+  gem 'bootstrap-sass'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -27,12 +27,8 @@ group :assets do
   gem 'sass-rails', '~> 4.0.3'
 end
 
-group :development do
-  gem 'sqlite3'
-end
-
 group :production do
-  gem 'mysql2'
+  gem 'sqlite3'
 end
 
 gem 'unicorn'
