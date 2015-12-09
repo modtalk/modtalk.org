@@ -1,10 +1,15 @@
-FROM ubuntu:latest
+FROM ubuntu:15.04
 
-RUN /usr/bin/apt-get update && /usr/bin/apt-get install -qy ruby1.9.1 ruby1.9.1-dev make g++ libmysqlclient-dev libsqlite3-dev nodejs patch
+RUN /usr/bin/apt-get update && /usr/bin/apt-get install --no-install-recommends -qy ruby ruby-dev make g++ libsqlite3-dev libsqlite3-0 patch zlib1g-dev libghc-zlib-dev
 RUN gem install bundler --no-ri --no-rdoc
-ADD . /rails-app
+ADD Gemfile /rails-app/Gemfile
+ADD Gemfile.lock /rails-app/Gemfile.lock
 WORKDIR /rails-app
-RUN /usr/bin/env bundle install
-RUN chown www-data:www-data /rails-app/Gemfile.lock
-EXPOSE 3000
-CMD thin -R config.ru -S /var/run/thin/$SITE_NAME.sock -u www-data -g www-data start
+RUN /usr/bin/env bundle install --without assets development test
+RUN /usr/bin/apt-get -qy purge ruby-dev g++ make patch && /usr/bin/apt-get -qy autoremove
+ADD . /rails-app
+RUN find public -mindepth 1 -not -name 'assets' -not -name 'manifest-*.json' -delete
+RUN chown -R www-data:www-data Gemfile.lock db tmp
+USER www-data
+EXPOSE 8080
+CMD bundle exec unicorn -p 8080

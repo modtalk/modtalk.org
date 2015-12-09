@@ -9,10 +9,8 @@ gem 'haml-rails'
 
 gem 'simple-rss'
 
-group :assets, :development do
-  gem 'turbolinks'
-  gem 'bootstrap-sass'
-end
+gem 'turbolinks'
+gem 'bootstrap-sass'
 
 # Gems used only for assets and not required
 # in production environments by default.
