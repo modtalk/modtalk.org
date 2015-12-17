@@ -1,0 +1,12 @@
+website:
+  build: .
+  environment:
+    RAILS_ENV: production
+    VIRTUAL_HOST: modtalk.org
+  cap_drop:
+    - ALL
+  tty: true
+  image: docker.technowizardry.net/modtalk_website:1
+  net: bridge
+  cap_add:
+    - CHOWN
