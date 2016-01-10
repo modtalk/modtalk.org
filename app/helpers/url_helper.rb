@@ -8,7 +8,7 @@ module UrlHelper
     end
   end
   def blog_path
-    'http://blog.modtalk.org'
+    ModtalkWebsite::Config.blog_domain
   end
   def pm_project_path(project='modtalk')
     if project.nil? then
