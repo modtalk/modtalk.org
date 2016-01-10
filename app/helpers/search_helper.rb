@@ -8,12 +8,12 @@ module SearchHelper
           must: [
             {
               match: {
-                :private => 'false'
+                private: 'false'
               }
             },
             {
               match: {
-                :type => 'issue'
+                type: 'issue'
               }
             },
             {
