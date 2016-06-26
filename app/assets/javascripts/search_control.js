@@ -82,7 +82,7 @@
 			var searchboxes = document.getElementsByClassName('search-box');
 			for (var i = searchboxes.length - 1; i >= 0; i--) {
 				register_events(searchboxes[i]);
-			};
+			}
 			var button = document.getElementsByClassName('search-button');
 			for (var i = 0; i < button.length; i++) {
 				button[i].addEventListener('click', function(evt) {
@@ -91,7 +91,7 @@
 					search.focus();
 					return false;
 				})
-			};
+			}
 		};
 		search_autocomplete();
 		return {

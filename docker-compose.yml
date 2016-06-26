@@ -1,18 +1,14 @@
-elasticsearch:
-  image: elasticsearch:1.5
-  expose:
-    - 9200
-
 web:
-  image: rails
+  build: .
   command: "/bin/sh -c 'rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0'"
   volumes:
     - .:/rails-app
-    - /home/adam/rubygems_cache:/gem-store
   expose:
     - 3000
-  links:
+  external_links:
     - elasticsearch
+  volumes_from:
+    - gems-2.1
   environment:
     RAILS_ENV: development
     VIRTUAL_HOST: modtalk.devvm

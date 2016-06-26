@@ -10,8 +10,11 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require_tree .
+//= require app_invoker
+//= require monitor
 //= require turbolinks
 //= require mustache
 
-Turbolinks.enableProgressBar();
+window.on_pageload.push(function() {
+  Turbolinks.enableProgressBar();
+});

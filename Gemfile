@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2'
+gem 'rails', '4.2.6'
 
 # Use HAML for server-side rendering
 gem 'haml'
@@ -19,7 +19,7 @@ group :assets do
   gem 'uglifier', '>= 1.3.0'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  #gem 'therubyracer', platforms: :ruby
+  gem 'therubyracer', platforms: :ruby
 
   # Use SCSS for stylesheets
   gem 'sass-rails', '~> 4.0.3'
