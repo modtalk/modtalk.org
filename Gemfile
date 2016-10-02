@@ -33,7 +33,7 @@ group :development, :production do
 end
 
 group :production do
-  gem 'sqlite3'
+  gem 'mysql2'
 end
 
 gem 'unicorn'

@@ -3,8 +3,8 @@ FROM ubuntu:16.04
 ADD . /rails-app
 WORKDIR /rails-app
 RUN apt-get update \
-  && apt-get install --no-install-recommends -qy ruby ruby-dev make g++ libsqlite3-dev \
-       libsqlite3-0 patch zlib1g-dev libghc-zlib-dev \
+  && apt-get install --no-install-recommends -qy ruby ruby-dev make g++ \
+       patch zlib1g-dev libghc-zlib-dev libmysqlclient20 libmysqlclient-dev \
   && gem install bundler --no-ri --no-rdoc \
   && env bundle install --without test development \
 
@@ -15,7 +15,7 @@ RUN apt-get update \
   && rm -rf app/assets/* \
 
 # Uninstall development headers/packages
-  && apt-get -qy purge libsqlite3-dev zlib1g-dev libghc-zlib-dev ruby-dev g++ make patch \
+  && apt-get -qy purge libmysqlclient-dev zlib1g-dev libghc-zlib-dev ruby-dev g++ make patch \
   && apt-get -qy autoremove \
   && rm -rf /var/lib/gems/2.3.0/cache /var/cache/* /var/lib/apt/lists/* tmp/* \
 
