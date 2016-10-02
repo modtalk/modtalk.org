@@ -20,6 +20,15 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+<% if ENV.key? 'DB_ADAPTER' %>
+production:
+  adapter: <%= ENV['DB_ADAPTER'] %>
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
+  database: <%= ENV['DB_DB'] %>
+<% else %>
 production:
   <<: *default
   database: db/production.sqlite3
+<% end %>
