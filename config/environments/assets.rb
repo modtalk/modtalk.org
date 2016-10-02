@@ -29,7 +29,4 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-
-  # Use Production built version of React
-  config.react.variant = :production
 end
