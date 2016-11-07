@@ -1,3 +1,5 @@
 en:
-  modtalk_name: Modtalk
+  brand:
+    upper: Modtalk
+    lower: modtalk
   downloads: Downloads

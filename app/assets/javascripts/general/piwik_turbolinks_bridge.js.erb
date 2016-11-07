@@ -1,0 +1,7 @@
+<% if Rails.env.assets? %>
+document.addEventListener('page:change', function() {
+  if (window._paq) {
+    _paq.push(['trackPageView', window.location.href]);
+  }
+});
+<% end %>

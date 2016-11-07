@@ -11,13 +11,11 @@ RUN apt-get update \
 # Generate compiled assets + manifests
   && RAILS_ENV=assets rake assets:precompile \
 
-# Remove the source assets because we don't need them anymore
-  && rm -rf app/assets/* \
-
 # Uninstall development headers/packages
   && apt-get -qy purge libmysqlclient-dev zlib1g-dev libghc-zlib-dev ruby-dev g++ make patch \
   && apt-get -qy autoremove \
-  && rm -rf /var/lib/gems/2.3.0/cache /var/cache/* /var/lib/apt/lists/* tmp/* \
+  && rm -rf /var/lib/gems/2.3.0/cache /var/cache/* /root /var/lib/apt/info/* /var/lib/apt/lists/* \
+     tmp/* \
 
 # All files/folders should be owned by root by readable by www-data
   && find . -type f -print -exec chmod 444 {} \; \
