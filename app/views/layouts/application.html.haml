@@ -11,6 +11,10 @@
     %meta{ content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0', name: 'viewport' }
     %meta{ content: 'Modtalk.org', property: 'apple-mobile-web-app-title' }
     %meta{ content: 'https://www.modtalk.org', name: 'canonical' }
+    - if ENV.key? 'PIWIK_BEACON'
+      %meta{ content: ENV['PIWIK_BEACON'], name: 'beacon_url' }
+    - if ENV.key? 'PIWIK_SITE_ID'
+      %meta{ content: ENV['PIWIK_SITE_ID'], name: 'beacon_site_id' }
     - if content_for? :head
       = yield :head
     %link{ href: image_url('modtalk_logo-144px.png'), rel: 'apple-touch-icon', size: '144x144' }

@@ -1,4 +1,11 @@
+<% if Rails.env.assets? %>
 (function() {
+var _paq = [];
+if (document.readyState !== 'loading') {
+  LoadHandler();
+} else {
+  document.addEventListener('DOMContentLoaded', LoadHandler);
+}
 <%=
 require 'net/http'
 uri = URI.parse('https://raw.githubusercontent.com/piwik/piwik/master/js/piwik.js')
@@ -12,12 +19,17 @@ if uri.scheme == 'https'
 end
 http.request(request).body
 %>
-var _paq = window._paq || (window._paq = []);
-var url = document.querySelector("meta[name='beacon_url']").content;
-var id = document.querySelector("meta[name='beacon_site_id']").content;
-_paq.push(['setTrackerUrl', url]);
-_paq.push(['setSiteId', id]);
-_paq.push(['setCookiePath', '/monitor']);
-_paq.push(['trackPageView']);
-_paq.push(['enableLinkTracking']);
+function LoadHandler() {
+  var url = document.querySelector("meta[name='beacon_url']");
+  var id = document.querySelector("meta[name='beacon_site_id']");
+  if (!url || !id) {
+    return;
+  }
+  _paq.push(['setTrackerUrl', url.content]);
+  _paq.push(['setSiteId', id.content]);
+  _paq.push(['setCookiePath', '/monitor']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+}
 })();
+<% end %>
