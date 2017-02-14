@@ -1,12 +1,15 @@
 - content_for :head do
   = render partial: 'layouts/opengraph', locals: { title: t('brand.upper'), url: root_url }
 - content_for :image_attribute do
-  Lighthouse photo &copy; 2011 Gwendolyn L. Day
+  = t 'views.default.index.footer.copyright'
 
 = render partial: 'header'
 .callout.lighthouse
   .img-lighthouse
 .container
-  = render partial: 'blog_post', collection: @rss.items.first(3), as: :post
+  - if @rss
+    = render partial: 'blog_post', collection: @rss.first(3), as: :post
+  - else
+    = t ('views.default.index.blog_load_fail')
   .blog-post
-    %h2= link_to 'Read more on our blog', blog_path, class: 'action-link'
+    %h2= link_to t('views.default.index.read_more_blog'), blog_path, class: 'action-link'

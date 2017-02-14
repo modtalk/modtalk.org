@@ -1,0 +1,9 @@
+en:
+  views:
+    default:
+      index:
+        tag_line_header: A compiled, modular Smalltalk
+        blog_load_fail: Failed to load blog posts.
+        read_more_blog: Read more on our blog
+        footer:
+          copyright: Lighthouse photo © 2011 Gwendolyn L. Day

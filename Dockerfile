@@ -24,6 +24,7 @@ RUN apt-get update \
   && chown -R www-data:www-data tmp \
   && chmod 755 db && find tmp -type d -print -exec chmod 755 {} \; \
   && find bin -type f -print -exec chmod 544 {} \;
+ENV RAILS_ENV=production
 USER www-data
 EXPOSE 8080
 ENTRYPOINT ["/usr/bin/ruby", "/rails-app/bin/bundle", "exec"]
