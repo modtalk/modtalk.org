@@ -8,6 +8,7 @@ gem 'haml'
 gem 'haml-rails'
 
 gem 'simple-rss'
+gem 'tzinfo-data'
 
 # Gems used only for assets and not required
 # in production environments by default.
