@@ -1,23 +1,23 @@
-FROM ubuntu:16.04
+FROM ubuntu:17.10
 
 ADD . /rails-app
 WORKDIR /rails-app
-RUN apt-get update \
-  && apt-get install --no-install-recommends -qy ruby ruby-dev make g++ \
-       patch zlib1g-dev libghc-zlib-dev libmysqlclient20 libmysqlclient-dev \
-  && gem install bundler --no-ri --no-rdoc \
+RUN export DEV_PKGS="libmysqlclient-dev zlib1g-dev libghc-zlib-dev ruby-dev g++ make patch" \
+  && apt-get update \
+  && apt-get install --no-install-recommends -qy ruby libmysqlclient20 $DEV_PKGS \
+  && gem install bundler rake --no-ri --no-rdoc \
   && env bundle install --without test development \
 
-# Generate compiled assets + manifests
+  # Generate compiled assets + manifests
   && RAILS_ENV=assets rake assets:precompile \
 
-# Uninstall development headers/packages
-  && apt-get -qy purge libmysqlclient-dev zlib1g-dev libghc-zlib-dev ruby-dev g++ make patch \
+  # Uninstall development headers/packages
+  && apt-get -qy purge $DEV_PKGS \
   && apt-get -qy autoremove \
   && rm -rf /var/lib/gems/2.3.0/cache /var/cache/* /root /var/lib/apt/info/* /var/lib/apt/lists/* \
      tmp/* \
 
-# All files/folders should be owned by root by readable by www-data
+  # All files/folders should be owned by root by readable by www-data
   && find . -type f -print -exec chmod 444 {} \; \
   && find . -type d -print -exec chmod 555 {} \; \
 
