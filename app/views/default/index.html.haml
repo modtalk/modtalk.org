@@ -10,6 +10,6 @@
   - if @rss
     = render partial: 'blog_post', collection: @rss.first(3), as: :post
   - else
-    = t ('views.default.index.blog_load_fail')
+    %h2= t ('views.default.index.blog_load_fail')
   .blog-post
     %h2= link_to t('views.default.index.read_more_blog'), blog_path, class: 'action-link'
